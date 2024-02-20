@@ -1,44 +1,41 @@
 import React from 'react'
-import { Image, StyleSheet, Text, View } from 'react-native'
+import { Dimensions, FlatList, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import { globalStyles } from '../../styles/globalStyles'
-import { CustomTitle } from '../../coponents/ui/CustomTitle'
+import { CustomTitle } from '../../coponents/ui/CustomTitle';
+import { CustomWatching } from '../../coponents/home/CustomWatching';
+import { CustomCategories } from '../../coponents/home/CustomCategories';
+import { CustomSlideMovie } from '../../coponents/ui/CustomSlideMovie';
+
+
+const RecommendedMovies = [
+  { id: 1, titleMovie: 'Rapido y Furioso 1', img: 'https://image.tmdb.org/t/p/w300/1E5baAaEse26fej7uHcjOgEE2t2.jpg'},
+  { id: 2, titleMovie: 'Rapido y Furioso 2', img: 'https://image.tmdb.org/t/p/w300/1E5baAaEse26fej7uHcjOgEE2t2.jpg'},
+  { id: 3, titleMovie: 'Rapido y Furioso 3', img: 'https://image.tmdb.org/t/p/w300/1E5baAaEse26fej7uHcjOgEE2t2.jpg'},
+  { id: 4, titleMovie: 'Rapido y Furioso 4', img: 'https://image.tmdb.org/t/p/w300/1E5baAaEse26fej7uHcjOgEE2t2.jpg'},
+  { id: 5, titleMovie: 'Rapido y Furioso 5', img: 'https://image.tmdb.org/t/p/w300/1E5baAaEse26fej7uHcjOgEE2t2.jpg'}
+]
 
 export const HomeScreen = () => {
 
+  const widthDimension = Dimensions.get('window').width;
+
   return (
     <View style={ globalStyles.layout}>
-        <Text style={ styles.boxHeader}>boxHeader</Text>
+        <View style={ styles.boxHeader}>
+        <CustomSlideMovie 
+          moviesData={RecommendedMovies}
+          widthData={widthDimension}
+        />
+        </View>
 
         <View style={ styles.boxView}>
-          <CustomTitle 
-            title={'Continue Watching'}
-          />
-
-          <View  style={ styles.card}>
-            <View style={ styles.cardImage}>
-              <Image
-                style={{ width: '100%', height: '100%'}}
-                source={{
-                  uri:  'https://image.tmdb.org/t/p/w500/1E5baAaEse26fej7uHcjOgEE2t2.jpg',
-                }}
-              />
-            </View>
-            <View style={ styles.cardInfo}>
-              <Text>Title Movie</Text>
-              <Text>Progress Bar</Text>
-              <View>
-                <Text>03:45</Text>
-                <Text>05:00</Text>
-              </View>
-            </View>
-          </View>
-
+          <CustomTitle title={'Continue Watching'}/>
+          <CustomWatching />
         </View>
 
         <View style={ styles.boxCategories}>
-          <CustomTitle 
-            title={'Categories'}
-          />
+          <CustomTitle title={'Categories'} />
+          <CustomCategories />
         </View>
 
         <View style={ styles.boxRecomend}>
@@ -46,6 +43,7 @@ export const HomeScreen = () => {
             title={ 'Recommended For You'}
             linkPath='/recomended'
           />
+          <CustomSlideMovie moviesData={RecommendedMovies}/>
         </View>
     </View>
   )
@@ -55,48 +53,26 @@ const styles = StyleSheet.create({
 
   boxHeader: {
     flex: 2,
-    borderWidth: 1,
-    borderColor: '#fff'
   },
 
   boxView: {
     flex: 1,
-    borderWidth: 1,
-    borderColor: '#fff'
+    // borderWidth: 1,
+    // borderColor: '#fff'
   },
 
   boxCategories: {
     flex: 1,
-    borderWidth: 1,
-    borderColor: '#fff'
+    // borderWidth: 1,
+    // borderColor: '#fff'
   },
 
   boxRecomend: {
     flex: 2,
-    borderWidth: 1,
-    borderColor: '#fff'
+    // borderWidth: 1,
+    // borderColor: '#fff'
   },
 
-  card: {
-    flex: 1,
-    backgroundColor: '#222',
-    borderWidth: 1,
-    borderColor: 'white',
-    flexDirection: 'row'
-  },
-
-   cardImage: {
-    flex: 1,
-    padding: 10,
-    borderWidth: 1,
-    borderColor: 'white'
-   },
-
-   cardInfo: {
-    flex: 3,
-    borderWidth: 1,
-    borderColor: 'white'
-   }
 })
 
 

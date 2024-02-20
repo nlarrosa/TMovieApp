@@ -25,16 +25,13 @@ const styles = StyleSheet.create({
     container: {
         flexDirection: 'row',
         justifyContent: 'space-between',
-        paddingHorizontal: 15,
         alignItems: 'center',
-        paddingVertical: 3,
-        // borderWidth: 1,
-        // borderColor: 'red'
+        paddingVertical: 10,
     },
 
     textTitle: {
         color: '#fff',
-        fontSize: 17
+        fontSize: 15
     },
 
     textBotton: {
