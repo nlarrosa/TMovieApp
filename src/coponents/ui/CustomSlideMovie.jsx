@@ -1,22 +1,27 @@
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
-import { FlatList, Image, View } from 'react-native';
+import { FlatList, Image, TouchableOpacity, View } from 'react-native';
 
 export const CustomSlideMovie = ( {moviesData, widthData=150, heigthData='100%', position='horizontal' } ) => {
+
+  const navigation = useNavigation();
 
     const CarrouselMovie = ( {image} ) => {
         // console.log(item.item.img)
         return (
           <View style={{ width: widthData, height: heigthData, marginHorizontal: 5 }}>
-            <Image 
-              style={{
-                width: widthData,
-                height: heigthData,
-                borderRadius: 10
-              }}
-              source={{
-                uri: image
-              }}
-            />
+            <TouchableOpacity onPress={() => navigation.navigate('Movie')}>
+              <Image 
+                style={{
+                  width: widthData,
+                  height: heigthData,
+                  borderRadius: 10
+                }}
+                source={{
+                  uri: image
+                }}
+              />
+            </TouchableOpacity>
           </View>
         )
     }
