@@ -63,7 +63,8 @@ export const BotomTabNavigators = () => {
                         size={24} 
                         color={focused ? 'rgba(255,255,255,1)' : 'rgba(255,255,255,0.5)' }
                     />
-                )
+                ),
+                tabBarBadge: 3
             }}
         />
     </Tab.Navigator>
