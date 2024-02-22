@@ -9,6 +9,7 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 import { AntDesign } from '@expo/vector-icons';
 
 
+
 const Tab = createBottomTabNavigator();
 
 export const BotomTabNavigators = () => {
@@ -21,23 +22,25 @@ export const BotomTabNavigators = () => {
         screenOptions={{
             headerShown: false,
             tabBarStyle: {
-                backgroundColor: '#f2058b',
+                backgroundColor: 'red',
                 borderColor: '#000',
                 borderWidth: 0,
-                borderRadius:50,
-                position: 'absolute',
-                bottom: 10,
-                left: 20,
-                right: 20,
-                elevation: 0,
-                height: 50,
+                // borderRadius:50,
+                // position: 'absolute',
+                // bottom: 10,
+                // left: 20,
+                // right: 20,
+                // elevation: 0,
+                // height: 60,
             },
             tabBarLabelStyle: {
                 fontSize: 13,
-                color: '#fff'
+                color: '#fff',
+                marginBottom: 3
             }
         }}
     >
+
         <Tab.Screen 
             name='Movies' 
             component={StackNavigators}
@@ -64,7 +67,10 @@ export const BotomTabNavigators = () => {
                         color={focused ? 'rgba(255,255,255,1)' : 'rgba(255,255,255,0.5)' }
                     />
                 ),
-                tabBarBadge: 3
+                tabBarBadge: 1,
+                tabBarBadgeStyle: {
+                    backgroundColor: 'yellow'
+                }
             }}
         />
     </Tab.Navigator>

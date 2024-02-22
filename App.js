@@ -17,8 +17,8 @@ export default function App() {
     <>
       <StatusBar />
       <NavigationContainer>
-        {/* <StackNavigators /> */}
-        <BotomTabNavigators />
+        <StackNavigators />
+        {/* <BotomTabNavigators /> */}
       </NavigationContainer>
     </>
     
